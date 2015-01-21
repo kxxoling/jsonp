@@ -12,7 +12,7 @@ def jsonp_service():
     url = request.args.get('url')
     orig_req = requests.get(url)
     content = orig_req.content
-    return '%s(%s)' % (str(callback), content)      # callback 为 unicode 类型，需要先转换为 str 类型
+    return 'try{%s(%s)}catch(e){alert(e)}' % (str(callback), content)      # callback 为 unicode 类型，需要先转换为 str 类型
 
 
 if __name__ == '__main__':
